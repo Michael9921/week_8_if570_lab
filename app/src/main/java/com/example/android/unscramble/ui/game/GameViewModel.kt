@@ -80,7 +80,6 @@ class GameViewModel : ViewModel() {
         } else {
             Log.d("Unscramble", "currentWord= $currentWord")
             _currentScrambledWord.value = String(tempWord)
-            ++currentWordCount
             _currentWordCount.value = _currentWordCount.value?.inc()
             wordsList.add(currentWord)
         }
@@ -116,7 +115,7 @@ class GameViewModel : ViewModel() {
     }
 
     /*
-     Returns true if the current word count is less than MAX_NO_OF_WORDS
+    * Returns true if the current word count is less than MAX_NO_OF_WORDS
     */
     fun nextWord(): Boolean {
         return if (_currentWordCount.value!! < MAX_NO_OF_WORDS) {

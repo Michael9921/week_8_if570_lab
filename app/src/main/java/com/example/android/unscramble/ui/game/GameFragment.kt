@@ -109,7 +109,7 @@ class GameFragment : Fragment() {
     }
 
     /*
-      Creates and shows an AlertDialog with final score.
+     *Creates and shows an AlertDialog with final score.
      */
     private fun showFinalScoreDialog() {
         MaterialAlertDialogBuilder(requireContext())
