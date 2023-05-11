@@ -29,6 +29,7 @@ import androidx.lifecycle.ViewModel
  * ViewModel containing the app data and methods to process the data
  */
 class GameViewModel : ViewModel() {
+
     private val _score = MutableLiveData(0)
     val score: LiveData<Int>
         get() = _score
@@ -59,6 +60,7 @@ class GameViewModel : ViewModel() {
     private lateinit var currentWord: String
 
     init {
+        Log.d("GameFragment", "GameViewModel created!")
         getNextWord()
     }
 
@@ -121,4 +123,12 @@ class GameViewModel : ViewModel() {
             true
         } else false
     }
+
+//    private var _currentScrambledWord = "test"
+//    val currentScrambledWord: String
+//        get() = _currentScrambledWord
+    override fun onCleared() {
+    super.onCleared()
+    Log.d("GameFragment", "GameViewModel destroyed!")
+}
 }
