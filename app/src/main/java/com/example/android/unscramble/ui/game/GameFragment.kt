@@ -87,7 +87,7 @@ class GameFragment : Fragment() {
 
         if (viewModel.isUserWordCorrect(playerWord)) {
             setErrorTextField(false)
-            if (!viewModel.nextWord()) {
+            if (viewModel.nextWord()) {
                 showFinalScoreDialog()
             }
         } else {
@@ -109,7 +109,7 @@ class GameFragment : Fragment() {
     }
 
     /*
-     * Creates and shows an AlertDialog with final score.
+      Creates and shows an AlertDialog with final score.
      */
     private fun showFinalScoreDialog() {
         MaterialAlertDialogBuilder(requireContext())
