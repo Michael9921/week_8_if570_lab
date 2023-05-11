@@ -31,7 +31,7 @@ import androidx.lifecycle.ViewModel
 class GameViewModel : ViewModel() {
 
     private val _score = MutableLiveData(0)
-    val score: LiveData<Int>
+    val score: MutableLiveData<Int>
         get() = _score
 
     private val _currentWordCount = MutableLiveData(0)
@@ -80,6 +80,7 @@ class GameViewModel : ViewModel() {
         } else {
             Log.d("Unscramble", "currentWord= $currentWord")
             _currentScrambledWord.value = String(tempWord)
+            ++currentWordCount
             _currentWordCount.value = _currentWordCount.value?.inc()
             wordsList.add(currentWord)
         }
@@ -130,5 +131,5 @@ class GameViewModel : ViewModel() {
     override fun onCleared() {
     super.onCleared()
     Log.d("GameFragment", "GameViewModel destroyed!")
-}
+    }
 }
