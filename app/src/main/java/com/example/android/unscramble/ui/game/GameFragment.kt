@@ -98,7 +98,7 @@ class GameFragment : Fragment() {
     /*
      * Skips the current word without changing the score.
      * Increases the word count.
-     * After the last word, the user is shown a Dialog with the final score.
+      After the last word, the user is shown a Dialog with the final score.
      */
     private fun onSkipWord() {
         if (viewModel.nextWord()) {
