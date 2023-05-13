@@ -73,7 +73,14 @@ class GameFragment : Fragment() {
         // Setup a click listener for the Submit and Skip buttons.
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
+
+        // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.
+        viewModel.currentScrambledWord.observe(viewLifecycleOwner,
+            { newWord ->
+                binding.textViewUnscrambledWord.text = newWord
+            })
     }
+
 
     /*
     * Checks the user's word, and updates the score accordingly.
@@ -89,7 +96,7 @@ class GameFragment : Fragment() {
 
         if (viewModel.isUserWordCorrect(playerWord)) {
             setErrorTextField(false)
-            if (viewModel.nextWord()) {
+            if (!viewModel.nextWord()) {
                 showFinalScoreDialog()
             }
         } else {
