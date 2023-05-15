@@ -85,7 +85,7 @@ class GameViewModel : ViewModel() {
     }
 
     /*
-     * Re-initializes the game data to restart the game.
+      Re-initializes the game data to restart the game.
      */
     fun reinitializeData() {
         _score.value = 0
